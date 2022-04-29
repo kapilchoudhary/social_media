@@ -1,0 +1,2 @@
+class Userdfdf < ApplicationRecord
+end
