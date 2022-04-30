@@ -16,6 +16,12 @@ class UsersController < ApplicationController
   end
 
   def update
+    user = User.find(params[:id])
+    if user.update(user_params)
+      render json: {user: UserSerializer.new(user), message: "user has updated"}
+    else
+      render json: {errors: user.errors.messages}
+    end
   end
 
   private

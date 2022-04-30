@@ -31,4 +31,10 @@
     !!current_user
   end
 
+  def require_login
+    unless logged_in?
+      {message: "You must be logged in"}
+    end
+  end
+
 end
