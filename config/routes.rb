@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :posts do
-
-  end
   resources :users
+  resources :posts do 
+    resources :comments
+  end
+  
 
   post '/user/login', to: "sessions#create", as: "login"
   get '/user/show', to: "sessions#show", as: "show_user"
