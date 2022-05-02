@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :require_login, only: [:create, :update, :delete] 
 
   def index
-    @posts = Post.paginate(page: params[:page])
+    all_posts = Post.paginate(page: params[:page])
     render json: {posts: all_posts.map {|post| PostSerializer.new(post)}}
   end 
 

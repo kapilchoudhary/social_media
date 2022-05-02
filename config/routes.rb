@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :users
   resources :posts do 
     resources :comments
@@ -10,5 +11,8 @@ Rails.application.routes.draw do
 
   match 'posts/:page' => 'posts#index', :constraints => {:page => /[0-9]+/}, via: [:get]
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get '/friend-request/send/:receiver_id', to: "friend_request#send_request", as: "send_request"
+  get '/friend-request/accept/:id', to: "friend_request#accept_request", as: "accept_request"
+  get '/friend-request/paddings', to: "friend_request#panding_request", as: "panding_request"
+
 end
