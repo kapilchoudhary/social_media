@@ -29,7 +29,7 @@ class FriendRequestController < ApplicationController
     render = json: {message: "Successfully Remove"}
   end
 
-  def your_friends
+  def my_friends
     request = current_user&.friend_receiver.where(status: true)
     if request
       render json: {receiver: request.map{|friend| FriendRequestorSerializer.new(friend)}}

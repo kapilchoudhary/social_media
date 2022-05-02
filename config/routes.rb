@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   get '/friend-request/send/:receiver_id', to: "friend_request#send_request", as: "send_request"
   get '/friend-request/accept/:id', to: "friend_request#accept_request", as: "accept_request"
   get '/friend-request/paddings', to: "friend_request#panding_request", as: "panding_request"
+  get '/firend-request/friends/list', to: "friend_request#my_friends", as: "my_friends"
 
 end
